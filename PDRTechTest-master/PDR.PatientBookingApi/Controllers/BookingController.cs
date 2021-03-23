@@ -58,7 +58,27 @@ namespace PDR.PatientBookingApi.Controllers
             }
         }
 
-    
+
+        [HttpDelete()]
+        public IActionResult RemoveBooking(long patientId, DateTime startTime)
+        {
+
+            try
+            {
+                _bookingService.CancelBooking(patientId, startTime);
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
+        }
+
+
 
         private static MyOrderResult UpdateLatestBooking(List<Order> bookings2, int i)
         {

@@ -89,5 +89,20 @@ namespace PDR.PatientBooking.Service.BookingServices
 
          
         }
+
+        public void CancelBooking(long identificationNumber,DateTime startTime)
+        {
+            
+            if (startTime > DateTime.Now)
+            {
+                if (_context.Order.Where(x => x.Patient.Id == identificationNumber && x.StartTime == startTime).Count() == 0)
+                {
+                    var appointment = _context.Order.Where(x => x.Patient.Id == identificationNumber && x.StartTime == startTime).SingleOrDefault();
+                    _context.Order.Remove(appointment);
+                }
+
+            }
+       
+        }
     }
 }
