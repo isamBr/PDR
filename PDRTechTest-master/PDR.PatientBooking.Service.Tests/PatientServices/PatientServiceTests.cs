@@ -19,7 +19,7 @@ using PDR.PatientBooking.Service.Validation;
 namespace PDR.PatientBooking.Service.Tests.PatientServices
 {
     [TestFixture]
-    public class PatientServiceTests
+    public class BookingServiceTests
     {
         private MockRepository _mockRepository;
         private IFixture _fixture;

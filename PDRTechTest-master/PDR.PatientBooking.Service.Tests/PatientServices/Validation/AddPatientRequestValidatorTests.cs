@@ -11,7 +11,7 @@ using System;
 namespace PDR.PatientBooking.Service.Tests.PatientServices.Validation
 {
     [TestFixture]
-    public class AddPatientRequestValidatorTests
+    public class AddBookingRequestValidatorTests
     {
         private IFixture _fixture;
 
